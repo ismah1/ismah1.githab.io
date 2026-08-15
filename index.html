@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Amna 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #090909;
+  color: white;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  display: none;
+  padding: 35px 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, #ff5fa2 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #b0005a 0%, transparent 30%),
+    #090909;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  padding: 40px 25px;
+  border: 1px solid #ff5fa2;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(255, 60, 150, 0.2);
+}
+
+h1 {
+  font-size: clamp(40px, 8vw, 80px);
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: clamp(28px, 5vw, 50px);
+  margin-bottom: 20px;
+  color: #ff75b5;
+}
+
+h3 {
+  margin: 15px 0;
+  color: #ff75b5;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.pink {
+  color: #ff75b5;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+button {
+  border: none;
+  padding: 15px 28px;
+  margin: 10px;
+  border-radius: 50px;
+  background: #ff4f9a;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 79, 154, .35);
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.07);
+  background: #ff79b4;
+}
+
+.secondary {
+  background: #181818;
+  border: 1px solid #ff4f9a;
+}
+
+.heart {
+  font-size: 70px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+
+.message {
+  text-align: left;
+  background: rgba(255,255,255,.06);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px 0;
+  border-left: 4px solid #ff5fa2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.reason,
+.memory {
+  padding: 25px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #191919, #101010);
+  border: 1px solid rgba(255,95,162,.5);
+  transition: .3s;
+}
+
+.reason:hover,
+.memory:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px rgba(255,80,160,.15);
+}
+
+.reason span,
+.memory span {
+  font-size: 35px;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.photo {
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #191919;
+  border: 1px solid #ff5fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  color: #aaa;
+  padding: 20px;
+}
+
+.big {
+  font-size: clamp(35px, 7vw, 75px);
+  color: #ff72b1;
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.gift {
+  font-size: 110px;
+  cursor: pointer;
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-15px) rotate(4deg); }
+}
+
+.secret {
+  display: none;
+  margin-top: 25px;
+  padding: 30px;
+  border-radius: 25px;
+  background: linear-gradient(135deg,#ff4f9a,#7a003d);
+}
+
+.puzzle {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  gap: 8px;
+  justify-content: center;
+  margin: 25px;
+}
+
+.piece {
+  height: 130px;
+  background: #222;
+  border: 2px solid #ff5fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 30px;
+  color: #999;
+}
+
+.music-note {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.fade {
+  animation: fade .8s ease;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<button class="music-note" onclick="toggleMusic()">♫</button>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+  <div class="card fade">
+    <div class="heart">💗</div>
+
+    <h1>Hey Amna...</h1>
+
+    <p class="subtitle">
+      I made something little for you...<br>
+      but it comes with a LOT of love. 🥹
+    </p>
+
+    <button onclick="nextPage(2); confetti()">Open Your Surprise 🎁</button>
+
+    <p class="footer">Made specially for my bestie ✨</p>
+  </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <div class="card">
+    <h2>🎂 Happy Birthday Amna 🎂</h2>
+
+    <p class="subtitle">
+      Today isn't just another day...
+      today is the day one of my favourite humans was born. 💗
+    </p>
+
+    <div class="big">🎀</div>
+
+    <button onclick="nextPage(3)">I have something to tell you 💌</button>
+  </div>
+</section>
+
+
+<!-- PAGE 3 MESSAGE -->
+<section class="page" id="page3">
+  <div class="card">
+
+    <h2>💌 A Little Birthday Letter</h2>
+
+    <div class="message">
+
+      <p>
+      Happy Birthday to my beautiful bestie Amna! 🥹💗
+      I honestly don't even know where to start because there are so many
+      things I want to say to you. Today is your special day, and I just
+      want you to know how genuinely grateful I am that you are a part of
+      my life. You are one of those people who somehow make ordinary days
+      feel special just by being there. Your presence, your crazy moments,
+      your random talks, your laughter and even your little mood swings
+      have become such a beautiful part of my memories.
+      </p>
+
+      <br>
+
+      <p>
+      I hope this new year of your life brings you everything your heart
+      secretly wishes for. I hope you get happiness that stays, people who
+      appreciate you, opportunities that make you proud, and countless
+      reasons to smile. Whenever life gets difficult, I hope you remember
+      how strong and amazing you actually are. Never let a bad day make
+      you believe that you aren't enough, because you are more than enough.
+      </p>
+
+      <br>
+
+      <p>
+      Thank you for all the little things, the conversations, the laughs,
+      the memories, the support and simply for being YOU. Some friendships
+      are difficult to explain because they become a feeling rather than
+      just a relationship. That's exactly what our friendship means to me.
+      </p>
+
+      <br>
+
+      <p>
+      So today, please smile a little extra, laugh a little louder and
+      enjoy every second because YOU deserve a beautiful birthday.
+      May this year become one of your favourite chapters yet.
+      </p>
+
+      <br>
+
+      <p class="pink">
+      Happy Birthday once again, my bestie. 🥹🎂💗
+      I'm so lucky to have you.
+      </p>
+
+    </div>
+
+    <button onclick="nextPage(4)">Now let's see our memories 📸</button>
+
+  </div>
+</section>
+
+
+<!-- PAGE 4 PHOTOS -->
+<section class="page" id="page4">
+  <div class="card">
+
+    <h2>📸 Our Little Gallery</h2>
+
+    <p class="subtitle">
+      Some moments deserve to stay forever. 💗
+    </p>
+
+    <div class="photos">
+
+      <div class="photo">
+        <div class="placeholder">
+          📷<br><br>
+          Add Photo 1
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          📷<br><br>
+          Add Photo 2
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          📷<br><br>
+          Add Photo 3
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          📷<br><br>
+          Add Photo 4
+        </div>
+      </div>
+
+    </div>
+
+    <button onclick="nextPage(5)">Our Memories 🥹</button>
+
+  </div>
+</section>
+
+
+<!-- PAGE 5 MEMORIES -->
+<section class="page" id="page5">
+  <div class="card">
+
+    <h2>🥹 Our Little Memories</h2>
+
+    <div class="grid">
+
+      <div class="memory">
+        <span>😂</span>
+        <h3>The Random Laughs</h3>
+        <p>
+          Those moments when we started laughing over something so stupid
+          that nobody else would even understand why it was funny.
+        </p>
+      </div>
+
+      <div class="memory">
+        <span>💬</span>
+        <h3>Our Endless Talks</h3>
+        <p>
+          From serious conversations to completely random nonsense,
+          somehow we always have something to talk about.
+        </p>
+      </div>
+
+      <div class="memory">
+        <span>🤭</span>
+        <h3>The Inside Jokes</h3>
+        <p>
+          The jokes that make absolutely no sense to anyone else...
+          but one look between us and we're already laughing.
+        </p>
+      </div>
+
+      <div class="memory">
+        <span>🫶</span>
+        <h3>Always There</h3>
+        <p>
+          Through good days, bad days and all the messy days in between,
+          having you as my bestie has always meant something special.
+        </p>
+      </div>
+
+    </div>
+
+    <button onclick="nextPage(6)">Want to know something? 👀</button>
+
+  </div>
+</section>
+
+
+<!-- PAGE 6 REASONS -->
+<section class="page" id="page6">
+  <div class="card">
+
+    <h2>💗 Reasons Why You're My Bestie</h2>
+
+    <div class="grid">
+
+      <div class="reason">
+        <span>🌸</span>
+        <h3>You make me smile</h3>
+        <p>Even on completely boring days.</p>
+      </div>
+
+      <div class="reason">
+        <span>🫶</span>
+        <h3>You listen</h3>
+        <p>Even when my stories are unnecessarily long. 😂</p>
+      </div>
+
+      <div class="reason">
+        <span>😂</span>
+        <h3>You're hilarious</h3>
+        <p>Sometimes intentionally... sometimes accidentally.</p>
+      </div>
+
+      <div class="reason">
+        <span>💗</span>
+        <h3>You care</h3>
+        <p>And that means more than you probably realize.</p>
+      </div>
+
+      <div class="reason">
+        <span>✨</span>
+        <h3>You're YOU</h3>
+        <p>And honestly, that's my favourite thing about you.</p>
+      </div>
+
+      <div class="reason">
+        <span>♾️</span>
+        <h3>Our friendship</h3>
+        <p>Because some people just become permanent parts of your heart.</p>
+      </div>
+
+    </div>
+
+    <button onclick="nextPage(7)">Okay... one tiny game 🎮</button>
+
+  </div>
+</section>
+
+
+<!-- PAGE 7 PUZZLE -->
+<section class="page" id="page7">
+  <div class="card">
+
+    <h2>🧩 Bestie Puzzle</h2>
+
+    <p class="subtitle">
+      Tap the pieces and try to find the secret! 👀
+    </p>
+
+    <div class="puzzle">
+
+      <div class="piece" onclick="pieceClick(this)">💗</div>
+      <div class="piece" onclick="pieceClick(this)">🎀</div>
+      <div class="piece" onclick="pieceClick(this)">🎂</div>
+      <div class="piece" onclick="pieceClick(this)">🎁</div>
+
+    </div>
+
+    <p id="puzzleText"></p>
+
+    <button onclick="nextPage(8)">I found the secret 🎁</button>
+
+  </div>
+</section>
+
+
+<!-- PAGE 8 GIFT -->
+<section class="page" id="page8">
+  <div class="card">
+
+    <h2>🎁 One Little Gift</h2>
+
+    <p class="subtitle">
+      Tap the gift... but be ready. 👀
+    </p>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <div class="secret" id="secret">
+
+      <h2>You are seriously special. 🥹💗</h2>
+
+      <p>
+        No expensive gift could ever properly explain how much
+        I appreciate having you as my bestie.
+      </p>
+
+      <br>
+
+      <p>
+        So this tiny website is my little way of saying:
+        <strong>I'm really, really glad you're in my life.</strong>
+      </p>
+
+    </div>
+
+    <button onclick="nextPage(9)">There's still one last thing... ✨</button>
+
+  </div>
+</section>
+
+
+<!-- FINAL PAGE -->
+<section class="page" id="page9">
+  <div class="card">
+
+    <div class="heart">💗</div>
+
+    <h1 class="big">For Amna</h1>
+
+    <h2>My Bestie. My Person. My Forever Memory. 🥹</h2>
+
+    <div class="message">
+
+      <p>
+      If you ever forget how special you are, come back to this page.
+      Read this again and remember that somewhere in this world there is
+      someone who is genuinely thankful that you exist.
+      </p>
+
+      <br>
+
+      <p>
+      I hope your birthday is filled with the kind of happiness that makes
+      your cheeks hurt from smiling. I hope you receive love in every form,
+      beautiful surprises, peaceful moments, unforgettable memories and
+      everything you've been wishing for.
+      </p>
+
+      <br>
+
+      <p>
+      And when this birthday becomes just another memory someday, I hope
+      you'll remember this little corner of the internet and smile because
+      it was made especially for you.
+      </p>
+
+      <br>
+
+      <p class="pink">
+      Here's to more stupid jokes. 😂<br>
+      More random conversations. 💬<br>
+      More unforgettable memories. 📸<br>
+      More adventures. ✨<br>
+      More laughing until we can't breathe. 😂💗<br>
+      And most importantly...<br>
+      MORE YEARS OF THIS FRIENDSHIP. ♾️
+      </p>
+
+      <br>
+
+      <p>
+      Happy Birthday, Amna. 🎂💗
+      </p>
+
+      <br>
+
+      <p>
+      May this chapter of your life be softer, brighter, happier and
+      more beautiful than the last one.
+      </p>
+
+      <br>
+
+      <h2>
+        I LOVE YOU SO MUCH, BESTIE. 🥹💗
+      </h2>
+
+      <p>
+        Never change the beautiful person you are.
+        And never forget that your bestie is always cheering for you. 🫶
+      </p>
+
+    </div>
+
+    <h2 style="margin-top:30px;">
+      HAPPY BIRTHDAY AMNAAAAA!!! 🎂🎀💗✨
+    </h2>
+
+    <p class="footer">
+      Made with love, just for you. ♡
+    </p>
+
+  </div>
+</section>
+
+
+<script>
+
+let currentPage = 1;
+
+function nextPage(number) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  const next = document.getElementById("page" + number);
+
+  if(next) {
+    next.classList.add("active");
+    currentPage = number;
+    window.scrollTo(0,0);
+  }
+}
+
+
+/* Gift */
+
+function openGift() {
+
+  document.getElementById("secret").style.display = "block";
+
+  confetti();
+
+}
+
+
+/* Puzzle */
+
+let clicked = 0;
+
+function pieceClick(piece) {
+
+  piece.style.background = "#ff4f9a";
+  piece.style.transform = "scale(1.05)";
+
+  clicked++;
+
+  if(clicked >= 4) {
+
+    document.getElementById("puzzleText").innerHTML =
+      "🥹💗 SECRET UNLOCKED: BEST FRIENDS FOREVER ♾️";
+
+    confetti();
+  }
+}
+
+
+/* Confetti */
+
+function confetti() {
+
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let pieces = [];
+
+  for(let i=0;i<120;i++) {
+
+    pieces.push({
+      x: Math.random()*canvas.width,
+      y: -20,
+      size: Math.random()*8+4,
+      speed: Math.random()*5+2,
+      rotation: Math.random()*360
+    });
+
+  }
+
+  let frames = 0;
+
+  function animate() {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    pieces.forEach(p => {
+
+      p.y += p.speed;
+      p.rotation += 4;
+
+      ctx.save();
+
+      ctx.translate(p.x,p.y);
+      ctx.rotate(p.rotation*Math.PI/180);
+
+      ctx.fillStyle =
+        ["#ff4f9a","#ffb3d5","#ffffff","#ff75b5"][Math.floor(Math.random()*4)];
+
+      ctx.fillRect(
+        -p.size/2,
+        -p.size/2,
+        p.size,
+        p.size
+      );
+
+      ctx.restore();
+
+    });
+
+    frames++;
+
+    if(frames < 180) {
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+  }
+
+  animate();
+}
+
+
+/* Soft
